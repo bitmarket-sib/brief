@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Ольга Сибирь — выбор цветового решения</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600&family=Onest:wght@400;500;600;700&family=Alegreya:wght@500;600&family=Rubik:wght@400;600;700&family=Montserrat:wght@500;700&family=Inter:wght@400;600;700&family=Vollkorn:wght@500;600&family=Fira+Sans:wght@400;600;700&family=Tenor+Sans&family=Manrope:wght@400;600;700&family=EB+Garamond:wght@500;600&family=Prata&family=Golos+Text:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --page-bg: #F7F7F5;
+      --page-surface: #FFFFFF;
+      --page-text: #1E1E1C;
+      --page-muted: #6B6B66;
+      --page-line: #E4E3DE;
+      --r-pill: 999px;
+      --r-card: 20px;
+      --r-block: 24px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Onest', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: var(--page-bg);
+      color: var(--page-text);
+      font-size: 16px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+
+    h1, h2, h3, p { margin: 0; }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    /* ---------- Page intro (neutral) ---------- */
+    .page-intro {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 20px 24px;
+      text-align: left;
+    }
+    .page-intro h1 {
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 600;
+      font-size: clamp(26px, 7vw, 38px);
+      line-height: 1.15;
+      color: var(--page-text);
+      letter-spacing: -0.01em;
+    }
+    .page-intro p {
+      margin-top: 16px;
+      font-size: 16px;
+      color: var(--page-muted);
+      max-width: 60ch;
+    }
+
+    /* ---------- Variant section ---------- */
+    .variant {
+      background: var(--bg);
+      color: var(--text);
+      padding: 40px 0 48px;
+      font-family: var(--font-body, 'Onest'), system-ui, sans-serif;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Variant badge */
+    .badge {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px 20px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+    .badge-num {
+      font-family: var(--font-display, 'Unbounded'), sans-serif;
+      font-weight: 600;
+      font-size: clamp(40px, 12vw, 60px);
+      line-height: 1;
+      color: var(--accent-2, var(--accent));
+      letter-spacing: -0.02em;
+    }
+    .badge-meta { display: flex; flex-direction: column; gap: 2px; }
+    .badge-name {
+      font-family: 'Onest', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--text);
+    }
+    .badge-mood {
+      font-size: 15px;
+      color: var(--muted);
+    }
+    .badge-fonts {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .swatches {
+      display: flex;
+      gap: 8px;
+      margin-left: auto;
+    }
+    .swatch {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+    }
+
+    /* Mini header */
+    .mini-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 28px 0 8px;
+    }
+    .brand-name {
+      font-family: var(--font-display, 'Unbounded'), sans-serif;
+      font-weight: 500;
+      font-size: 18px;
+      color: var(--text);
+      line-height: 1.2;
+    }
+    .brand-sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    /* Buttons */
+    .btn {
+      font-weight: 600;
+      font-size: 15px;
+      border-radius: var(--r-pill);
+      padding: 12px 22px;
+      line-height: 1.2;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: none;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--accent-text);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--accent);
+      box-shadow: inset 0 0 0 1.5px var(--accent);
+    }
+    .btn-invert {
+      background: var(--accent-text);
+      color: var(--accent);
+    }
+    .btn-header { padding: 10px 18px; font-size: 14px; }
+    .btn:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .btn { transition: opacity .18s ease, transform .18s ease; }
+      .btn:hover { opacity: .9; }
+      .btn:active { transform: translateY(1px); }
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      padding: 24px 0 8px;
+    }
+    .hero-eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .hero-content h1 {
+      font-family: var(--font-display, 'Unbounded'), sans-serif;
+      font-weight: 600;
+      font-size: clamp(26px, 7.5vw, 40px);
+      line-height: 1.15;
+      color: var(--text);
+      margin-top: 14px;
+      letter-spacing: -0.015em;
+    }
+    .hero-sub {
+      margin-top: 16px;
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 46ch;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .hero-note {
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .hero-photo {
+      border-radius: var(--r-block);
+      background: var(--line);
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 24px;
+      text-align: center;
+    }
+    .hero-photo .letter {
+      font-family: var(--font-display, 'Unbounded'), sans-serif;
+      font-weight: 600;
+      font-size: clamp(56px, 16vw, 96px);
+      line-height: 1;
+      color: var(--accent);
+    }
+    .hero-photo .cap {
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    /* Тема 1 «Тёплый дом» — серифный display (Alegreya) */
+    .t1 .hero-content h1,
+    .t1 .brand-name,
+    .t1 .badge-num,
+    .t1 .hero-photo .letter {
+      font-weight: 600;
+      letter-spacing: 0;
+    }
+    .t1 .hero-content h1 {
+      font-size: clamp(28px, 8vw, 42px);
+    }
+
+    /* Тема 2 «Енисей» — display Montserrat */
+    .t2 .hero-content h1,
+    .t2 .brand-name,
+    .t2 .badge-num,
+    .t2 .hero-photo .letter {
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    /* Тема 3 «Столбы» — серифный display (Vollkorn) */
+    .t3 .hero-content h1,
+    .t3 .brand-name,
+    .t3 .badge-num,
+    .t3 .hero-photo .letter {
+      font-weight: 600;
+      letter-spacing: 0;
+    }
+    .t3 .hero-content h1 {
+      font-size: clamp(28px, 8vw, 42px);
+    }
+
+    /* Тема 5 «Вечерний город» — display Tenor Sans (только 400) */
+    .t5 .hero-content h1,
+    .t5 .brand-name,
+    .t5 .badge-num,
+    .t5 .hero-photo .letter {
+      font-weight: 400;
+      letter-spacing: 0.01em;
+    }
+    .t5 .hero-content h1 {
+      font-size: clamp(28px, 8vw, 42px);
+    }
+
+    /* Тема 6 «Лён и ель» — серифный display (EB Garamond) */
+    .t6 .hero-content h1,
+    .t6 .brand-name,
+    .t6 .badge-num,
+    .t6 .hero-photo .letter {
+      font-weight: 500;
+      letter-spacing: 0;
+    }
+    .t6 .hero-content h1 {
+      font-size: clamp(28px, 8vw, 44px);
+    }
+
+    /* Тема 7 «Уголь и латунь» — серифный display (Prata, только 400) */
+    .t7 .hero-content h1,
+    .t7 .brand-name,
+    .t7 .badge-num,
+    .t7 .hero-photo .letter {
+      font-weight: 400;
+      letter-spacing: 0;
+    }
+    .t7 .hero-content h1 {
+      font-size: clamp(26px, 7.5vw, 42px);
+    }
+
+    /* Stats row */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 32px;
+    }
+    .stat {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--r-card);
+      padding: 18px 18px;
+    }
+    .stat-lead {
+      font-weight: 700;
+      color: var(--accent-2, var(--accent));
+      font-size: 17px;
+      line-height: 1.2;
+    }
+    .stat-desc {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    /* Service cards */
+    .services {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .service {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--r-card);
+      padding: 24px;
+    }
+    .service h3 {
+      font-family: 'Onest', sans-serif;
+      font-weight: 700;
+      font-size: 19px;
+      color: var(--text);
+    }
+    .service p {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* CTA band */
+    .cta {
+      background: var(--accent);
+      border-radius: var(--r-block);
+      padding: 28px 24px;
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .cta p {
+      color: var(--accent-text);
+      font-weight: 600;
+      font-size: 19px;
+      line-height: 1.3;
+      max-width: 32ch;
+    }
+    .cta .btn-invert { align-self: flex-start; }
+
+    /* ---------- Page footer (neutral) ---------- */
+    .page-footer {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px 20px 56px;
+      text-align: center;
+    }
+    .page-footer .lead {
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--page-text);
+    }
+    .page-footer .fine {
+      margin-top: 10px;
+      font-size: 14px;
+      color: var(--page-muted);
+    }
+
+    /* ---------- ≥760px: two-column hero + wider grids ---------- */
+    @media (min-width: 760px) {
+      .variant { padding: 56px 0 64px; }
+      .hero {
+        grid-template-columns: 1.15fr 0.85fr;
+        align-items: center;
+        gap: 40px;
+      }
+      .hero-content { order: 1; }
+      .hero-photo { order: 2; min-height: 340px; }
+      .stats { grid-template-columns: repeat(4, 1fr); }
+      .services { grid-template-columns: 1fr 1fr; }
+      .cta {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 32px 36px;
+      }
+      .cta .btn-invert { align-self: center; flex-shrink: 0; }
+      .page-intro { padding-top: 64px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Вступление -->
+  <section class="page-intro">
+    <h1>Ольга, привет!</h1>
+    <p>Ниже — семь цветовых настроений твоего будущего сайта. Содержание везде одинаковое — меняются цвета и характер шрифтов. Полистай и выбери вариант, который почувствуешь своим. Кнопки в макете не нажимаются — это только образец стиля.</p>
+  </section>
+
+  <!-- Вариант 1 -->
+  <section class="variant t1" style="--bg:#FAF1E8; --surface:#FFFFFF; --text:#3B2E25; --muted:#6E5B4A; --accent:#B9502F; --accent-text:#FFFFFF; --line:#EBD6C2; --font-display:'Alegreya', Georgia, serif; --font-body:'Rubik', sans-serif;">
+    <div class="container">
+      <div class="badge">
+        <div class="badge-num">01</div>
+        <div class="badge-meta">
+          <div class="badge-name">Тёплый дом</div>
+          <div class="badge-mood">тепло и уют</div>
+          <div class="badge-fonts">Alegreya · Rubik</div>
+        </div>
+        <div class="swatches">
+          <span class="swatch" style="background:var(--bg);"></span>
+          <span class="swatch" style="background:var(--accent);"></span>
+          <span class="swatch" style="background:var(--text);"></span>
+          <span class="swatch" style="background:var(--line);"></span>
+        </div>
+      </div>
+
+      <div class="mini-header">
+        <div>
+          <div class="brand-name">Ольга Сибирь</div>
+          <div class="brand-sub">недвижимость · Красноярск</div>
+        </div>
+        <button type="button" class="btn btn-primary btn-header">Оставить заявку</button>
+      </div>
+
+      <div class="hero">
+        <div class="hero-content">
+          <div class="hero-eyebrow">Риэлтор · Красноярск · работаю по всей России</div>
+          <h1>Помогу вашей семье купить квартиру в новостройке — выгодно и безопасно</h1>
+          <p class="hero-sub">Подберу квартиру и льготную ипотеку — семейную, IT или без первоначального взноса. Сопровождаю сделку на каждом этапе: онлайн или лично.</p>
+          <div class="hero-actions">
+            <button type="button" class="btn btn-primary">Оставить заявку</button>
+            <button type="button" class="btn btn-outline">Мой Instagram</button>
+          </div>
+          <div class="hero-note">Партнёр Союза застройщиков России и топовых банков</div>
+        </div>
+        <div class="hero-photo">
+          <div class="letter">О</div>
+          <div class="cap">здесь будет твоё фото</div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="stat-lead">15+</div><div class="stat-desc">лет в продажах</div></div>
+        <div class="stat"><div class="stat-lead">5+</div><div class="stat-desc">лет в недвижимости</div></div>
+        <div class="stat"><div class="stat-lead">Вся Россия</div><div class="stat-desc">онлайн и офлайн</div></div>
+        <div class="stat"><div class="stat-lead">Партнёр</div><div class="stat-desc">топовых банков</div></div>
+      </div>
+
+      <div class="services">
+        <div class="service">
+          <h3>Семейная ипотека</h3>
+          <p>Оформлю льготную ставку для семьи с детьми — в том числе без первоначального взноса.</p>
+        </div>
+        <div class="service">
+          <h3>Новостройки</h3>
+          <p>Подберу квартиру у надёжного застройщика и проверю каждый документ сделки.</p>
+        </div>
+      </div>
+
+      <div class="cta">
+        <p>Расскажите о вашей ситуации — предложу варианты уже сегодня</p>
+        <button type="button" class="btn btn-invert">Оставить заявку</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Вариант 2 -->
+  <section class="variant t2" style="--bg:#F2F6FA; --surface:#FFFFFF; --text:#16283C; --muted:#46586E; --accent:#1D5FBF; --accent-text:#FFFFFF; --line:#D7E3F0; --font-display:'Montserrat', sans-serif; --font-body:'Inter', sans-serif;">
+    <div class="container">
+      <div class="badge">
+        <div class="badge-num">02</div>
+        <div class="badge-meta">
+          <div class="badge-name">Енисей</div>
+          <div class="badge-mood">свежесть и надёжность</div>
+          <div class="badge-fonts">Montserrat · Inter</div>
+        </div>
+        <div class="swatches">
+          <span class="swatch" style="background:var(--bg);"></span>
+          <span class="swatch" style="background:var(--accent);"></span>
+          <span class="swatch" style="background:var(--text);"></span>
+          <span class="swatch" style="background:var(--line);"></span>
+        </div>
+      </div>
+
+      <div class="mini-header">
+        <div>
+          <div class="brand-name">Ольга Сибирь</div>
+          <div class="brand-sub">недвижимость · Красноярск</div>
+        </div>
+        <button type="button" class="btn btn-primary btn-header">Оставить заявку</button>
+      </div>
+
+      <div class="hero">
+        <div class="hero-content">
+          <div class="hero-eyebrow">Риэлтор · Красноярск · работаю по всей России</div>
+          <h1>Помогу вашей семье купить квартиру в новостройке — выгодно и безопасно</h1>
+          <p class="hero-sub">Подберу квартиру и льготную ипотеку — семейную, IT или без первоначального взноса. Сопровождаю сделку на каждом этапе: онлайн или лично.</p>
+          <div class="hero-actions">
+            <button type="button" class="btn btn-primary">Оставить заявку</button>
+            <button type="button" class="btn btn-outline">Мой Instagram</button>
+          </div>
+          <div class="hero-note">Партнёр Союза застройщиков России и топовых банков</div>
+        </div>
+        <div class="hero-photo">
+          <div class="letter">О</div>
+          <div class="cap">здесь будет твоё фото</div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="stat-lead">15+</div><div class="stat-desc">лет в продажах</div></div>
+        <div class="stat"><div class="stat-lead">5+</div><div class="stat-desc">лет в недвижимости</div></div>
+        <div class="stat"><div class="stat-lead">Вся Россия</div><div class="stat-desc">онлайн и офлайн</div></div>
+        <div class="stat"><div class="stat-lead">Партнёр</div><div class="stat-desc">топовых банков</div></div>
+      </div>
+
+      <div class="services">
+        <div class="service">
+          <h3>Семейная ипотека</h3>
+          <p>Оформлю льготную ставку для семьи с детьми — в том числе без первоначального взноса.</p>
+        </div>
+        <div class="service">
+          <h3>Новостройки</h3>
+          <p>Подберу квартиру у надёжного застройщика и проверю каждый документ сделки.</p>
+        </div>
+      </div>
+
+      <div class="cta">
+        <p>Расскажите о вашей ситуации — предложу варианты уже сегодня</p>
+        <button type="button" class="btn btn-invert">Оставить заявку</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Вариант 3 -->
+  <section class="variant t3" style="--bg:#F4F1E7; --surface:#FFFFFF; --text:#253023; --muted:#4F5A48; --accent:#2E5C41; --accent-text:#FFFFFF; --line:#DFDAC4; --font-display:'Vollkorn', Georgia, serif; --font-body:'Fira Sans', sans-serif;">
+    <div class="container">
+      <div class="badge">
+        <div class="badge-num">03</div>
+        <div class="badge-meta">
+          <div class="badge-name">Столбы</div>
+          <div class="badge-mood">природа и спокойствие</div>
+          <div class="badge-fonts">Vollkorn · Fira Sans</div>
+        </div>
+        <div class="swatches">
+          <span class="swatch" style="background:var(--bg);"></span>
+          <span class="swatch" style="background:var(--accent);"></span>
+          <span class="swatch" style="background:var(--text);"></span>
+          <span class="swatch" style="background:var(--line);"></span>
+        </div>
+      </div>
+
+      <div class="mini-header">
+        <div>
+          <div class="brand-name">Ольга Сибирь</div>
+          <div class="brand-sub">недвижимость · Красноярск</div>
+        </div>
+        <button type="button" class="btn btn-primary btn-header">Оставить заявку</button>
+      </div>
+
+      <div class="hero">
+        <div class="hero-content">
+          <div class="hero-eyebrow">Риэлтор · Красноярск · работаю по всей России</div>
+          <h1>Помогу вашей семье купить квартиру в новостройке — выгодно и безопасно</h1>
+          <p class="hero-sub">Подберу квартиру и льготную ипотеку — семейную, IT или без первоначального взноса. Сопровождаю сделку на каждом этапе: онлайн или лично.</p>
+          <div class="hero-actions">
+            <button type="button" class="btn btn-primary">Оставить заявку</button>
+            <button type="button" class="btn btn-outline">Мой Instagram</button>
+          </div>
+          <div class="hero-note">Партнёр Союза застройщиков России и топовых банков</div>
+        </div>
+        <div class="hero-photo">
+          <div class="letter">О</div>
+          <div class="cap">здесь будет твоё фото</div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="stat-lead">15+</div><div class="stat-desc">лет в продажах</div></div>
+        <div class="stat"><div class="stat-lead">5+</div><div class="stat-desc">лет в недвижимости</div></div>
+        <div class="stat"><div class="stat-lead">Вся Россия</div><div class="stat-desc">онлайн и офлайн</div></div>
+        <div class="stat"><div class="stat-lead">Партнёр</div><div class="stat-desc">топовых банков</div></div>
+      </div>
+
+      <div class="services">
+        <div class="service">
+          <h3>Семейная ипотека</h3>
+          <p>Оформлю льготную ставку для семьи с детьми — в том числе без первоначального взноса.</p>
+        </div>
+        <div class="service">
+          <h3>Новостройки</h3>
+          <p>Подберу квартиру у надёжного застройщика и проверю каждый документ сделки.</p>
+        </div>
+      </div>
+
+      <div class="cta">
+        <p>Расскажите о вашей ситуации — предложу варианты уже сегодня</p>
+        <button type="button" class="btn btn-invert">Оставить заявку</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Вариант 4 -->
+  <section class="variant t4" style="--bg:#FFF6F3; --surface:#FFFFFF; --text:#38202C; --muted:#6E4756; --accent:#C22E5D; --accent-text:#FFFFFF; --line:#F6D7DE;">
+    <div class="container">
+      <div class="badge">
+        <div class="badge-num">04</div>
+        <div class="badge-meta">
+          <div class="badge-name">Ягода</div>
+          <div class="badge-mood">яркость и энергия</div>
+          <div class="badge-fonts">Unbounded · Onest</div>
+        </div>
+        <div class="swatches">
+          <span class="swatch" style="background:var(--bg);"></span>
+          <span class="swatch" style="background:var(--accent);"></span>
+          <span class="swatch" style="background:var(--text);"></span>
+          <span class="swatch" style="background:var(--line);"></span>
+        </div>
+      </div>
+
+      <div class="mini-header">
+        <div>
+          <div class="brand-name">Ольга Сибирь</div>
+          <div class="brand-sub">недвижимость · Красноярск</div>
+        </div>
+        <button type="button" class="btn btn-primary btn-header">Оставить заявку</button>
+      </div>
+
+      <div class="hero">
+        <div class="hero-content">
+          <div class="hero-eyebrow">Риэлтор · Красноярск · работаю по всей России</div>
+          <h1>Помогу вашей семье купить квартиру в новостройке — выгодно и безопасно</h1>
+          <p class="hero-sub">Подберу квартиру и льготную ипотеку — семейную, IT или без первоначального взноса. Сопровождаю сделку на каждом этапе: онлайн или лично.</p>
+          <div class="hero-actions">
+            <button type="button" class="btn btn-primary">Оставить заявку</button>
+            <button type="button" class="btn btn-outline">Мой Instagram</button>
+          </div>
+          <div class="hero-note">Партнёр Союза застройщиков России и топовых банков</div>
+        </div>
+        <div class="hero-photo">
+          <div class="letter">О</div>
+          <div class="cap">здесь будет твоё фото</div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="stat-lead">15+</div><div class="stat-desc">лет в продажах</div></div>
+        <div class="stat"><div class="stat-lead">5+</div><div class="stat-desc">лет в недвижимости</div></div>
+        <div class="stat"><div class="stat-lead">Вся Россия</div><div class="stat-desc">онлайн и офлайн</div></div>
+        <div class="stat"><div class="stat-lead">Партнёр</div><div class="stat-desc">топовых банков</div></div>
+      </div>
+
+      <div class="services">
+        <div class="service">
+          <h3>Семейная ипотека</h3>
+          <p>Оформлю льготную ставку для семьи с детьми — в том числе без первоначального взноса.</p>
+        </div>
+        <div class="service">
+          <h3>Новостройки</h3>
+          <p>Подберу квартиру у надёжного застройщика и проверю каждый документ сделки.</p>
+        </div>
+      </div>
+
+      <div class="cta">
+        <p>Расскажите о вашей ситуации — предложу варианты уже сегодня</p>
+        <button type="button" class="btn btn-invert">Оставить заявку</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Вариант 5 -->
+  <section class="variant t5" style="--bg:#1B2431; --surface:#242F3F; --text:#F1ECE1; --muted:#A9B2BF; --accent:#E2B36B; --accent-text:#241B0F; --line:#344051; --font-display:'Tenor Sans', sans-serif; --font-body:'Manrope', sans-serif;">
+    <div class="container">
+      <div class="badge">
+        <div class="badge-num">05</div>
+        <div class="badge-meta">
+          <div class="badge-name">Вечерний город</div>
+          <div class="badge-mood">премиум и огни города</div>
+          <div class="badge-fonts">Tenor Sans · Manrope</div>
+        </div>
+        <div class="swatches">
+          <span class="swatch" style="background:var(--bg);"></span>
+          <span class="swatch" style="background:var(--accent);"></span>
+          <span class="swatch" style="background:var(--text);"></span>
+          <span class="swatch" style="background:var(--line);"></span>
+        </div>
+      </div>
+
+      <div class="mini-header">
+        <div>
+          <div class="brand-name">Ольга Сибирь</div>
+          <div class="brand-sub">недвижимость · Красноярск</div>
+        </div>
+        <button type="button" class="btn btn-primary btn-header">Оставить заявку</button>
+      </div>
+
+      <div class="hero">
+        <div class="hero-content">
+          <div class="hero-eyebrow">Риэлтор · Красноярск · работаю по всей России</div>
+          <h1>Помогу вашей семье купить квартиру в новостройке — выгодно и безопасно</h1>
+          <p class="hero-sub">Подберу квартиру и льготную ипотеку — семейную, IT или без первоначального взноса. Сопровождаю сделку на каждом этапе: онлайн или лично.</p>
+          <div class="hero-actions">
+            <button type="button" class="btn btn-primary">Оставить заявку</button>
+            <button type="button" class="btn btn-outline">Мой Instagram</button>
+          </div>
+          <div class="hero-note">Партнёр Союза застройщиков России и топовых банков</div>
+        </div>
+        <div class="hero-photo">
+          <div class="letter">О</div>
+          <div class="cap">здесь будет твоё фото</div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="stat-lead">15+</div><div class="stat-desc">лет в продажах</div></div>
+        <div class="stat"><div class="stat-lead">5+</div><div class="stat-desc">лет в недвижимости</div></div>
+        <div class="stat"><div class="stat-lead">Вся Россия</div><div class="stat-desc">онлайн и офлайн</div></div>
+        <div class="stat"><div class="stat-lead">Партнёр</div><div class="stat-desc">топовых банков</div></div>
+      </div>
+
+      <div class="services">
+        <div class="service">
+          <h3>Семейная ипотека</h3>
+          <p>Оформлю льготную ставку для семьи с детьми — в том числе без первоначального взноса.</p>
+        </div>
+        <div class="service">
+          <h3>Новостройки</h3>
+          <p>Подберу квартиру у надёжного застройщика и проверю каждый документ сделки.</p>
+        </div>
+      </div>
+
+      <div class="cta">
+        <p>Расскажите о вашей ситуации — предложу варианты уже сегодня</p>
+        <button type="button" class="btn btn-invert">Оставить заявку</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Вариант 6 -->
+  <section class="variant t6" style="--bg:#F1ECE2; --surface:#FAF7F0; --text:#2A322D; --muted:#5D675F; --accent:#24382E; --accent-text:#FAF7F0; --line:#D9D0BE; --accent-2:#A65E36; --font-display:'EB Garamond', Georgia, serif; --font-body:'Golos Text', sans-serif;">
+    <div class="container">
+      <div class="badge">
+        <div class="badge-num">06</div>
+        <div class="badge-meta">
+          <div class="badge-name">Лён и ель</div>
+          <div class="badge-mood">спокойная классика</div>
+          <div class="badge-fonts">EB Garamond · Golos Text</div>
+        </div>
+        <div class="swatches">
+          <span class="swatch" style="background:var(--bg);"></span>
+          <span class="swatch" style="background:var(--accent);"></span>
+          <span class="swatch" style="background:var(--accent-2);"></span>
+          <span class="swatch" style="background:var(--text);"></span>
+          <span class="swatch" style="background:var(--line);"></span>
+        </div>
+      </div>
+
+      <div class="mini-header">
+        <div>
+          <div class="brand-name">Ольга Сибирь</div>
+          <div class="brand-sub">недвижимость · Красноярск</div>
+        </div>
+        <button type="button" class="btn btn-primary btn-header">Оставить заявку</button>
+      </div>
+
+      <div class="hero">
+        <div class="hero-content">
+          <div class="hero-eyebrow">Риэлтор · Красноярск · работаю по всей России</div>
+          <h1>Помогу вашей семье купить квартиру в новостройке — выгодно и безопасно</h1>
+          <p class="hero-sub">Подберу квартиру и льготную ипотеку — семейную, IT или без первоначального взноса. Сопровождаю сделку на каждом этапе: онлайн или лично.</p>
+          <div class="hero-actions">
+            <button type="button" class="btn btn-primary">Оставить заявку</button>
+            <button type="button" class="btn btn-outline">Мой Instagram</button>
+          </div>
+          <div class="hero-note">Партнёр Союза застройщиков России и топовых банков</div>
+        </div>
+        <div class="hero-photo">
+          <div class="letter">О</div>
+          <div class="cap">здесь будет твоё фото</div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="stat-lead">15+</div><div class="stat-desc">лет в продажах</div></div>
+        <div class="stat"><div class="stat-lead">5+</div><div class="stat-desc">лет в недвижимости</div></div>
+        <div class="stat"><div class="stat-lead">Вся Россия</div><div class="stat-desc">онлайн и офлайн</div></div>
+        <div class="stat"><div class="stat-lead">Партнёр</div><div class="stat-desc">топовых банков</div></div>
+      </div>
+
+      <div class="services">
+        <div class="service">
+          <h3>Семейная ипотека</h3>
+          <p>Оформлю льготную ставку для семьи с детьми — в том числе без первоначального взноса.</p>
+        </div>
+        <div class="service">
+          <h3>Новостройки</h3>
+          <p>Подберу квартиру у надёжного застройщика и проверю каждый документ сделки.</p>
+        </div>
+      </div>
+
+      <div class="cta">
+        <p>Расскажите о вашей ситуации — предложу варианты уже сегодня</p>
+        <button type="button" class="btn btn-invert">Оставить заявку</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Вариант 7 -->
+  <section class="variant t7" style="--bg:#131619; --surface:#1C2126; --text:#F4F0E8; --muted:#9E9D99; --accent:#B99668; --accent-text:#131619; --line:#2E3237; --font-display:'Prata', Georgia, serif; --font-body:'Onest', sans-serif;">
+    <div class="container">
+      <div class="badge">
+        <div class="badge-num">07</div>
+        <div class="badge-meta">
+          <div class="badge-name">Уголь и латунь</div>
+          <div class="badge-mood">строгий премиум</div>
+          <div class="badge-fonts">Prata · Onest</div>
+        </div>
+        <div class="swatches">
+          <span class="swatch" style="background:var(--bg);"></span>
+          <span class="swatch" style="background:var(--accent);"></span>
+          <span class="swatch" style="background:var(--text);"></span>
+          <span class="swatch" style="background:var(--line);"></span>
+        </div>
+      </div>
+
+      <div class="mini-header">
+        <div>
+          <div class="brand-name">Ольга Сибирь</div>
+          <div class="brand-sub">недвижимость · Красноярск</div>
+        </div>
+        <button type="button" class="btn btn-primary btn-header">Оставить заявку</button>
+      </div>
+
+      <div class="hero">
+        <div class="hero-content">
+          <div class="hero-eyebrow">Риэлтор · Красноярск · работаю по всей России</div>
+          <h1>Помогу вашей семье купить квартиру в новостройке — выгодно и безопасно</h1>
+          <p class="hero-sub">Подберу квартиру и льготную ипотеку — семейную, IT или без первоначального взноса. Сопровождаю сделку на каждом этапе: онлайн или лично.</p>
+          <div class="hero-actions">
+            <button type="button" class="btn btn-primary">Оставить заявку</button>
+            <button type="button" class="btn btn-outline">Мой Instagram</button>
+          </div>
+          <div class="hero-note">Партнёр Союза застройщиков России и топовых банков</div>
+        </div>
+        <div class="hero-photo">
+          <div class="letter">О</div>
+          <div class="cap">здесь будет твоё фото</div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="stat-lead">15+</div><div class="stat-desc">лет в продажах</div></div>
+        <div class="stat"><div class="stat-lead">5+</div><div class="stat-desc">лет в недвижимости</div></div>
+        <div class="stat"><div class="stat-lead">Вся Россия</div><div class="stat-desc">онлайн и офлайн</div></div>
+        <div class="stat"><div class="stat-lead">Партнёр</div><div class="stat-desc">топовых банков</div></div>
+      </div>
+
+      <div class="services">
+        <div class="service">
+          <h3>Семейная ипотека</h3>
+          <p>Оформлю льготную ставку для семьи с детьми — в том числе без первоначального взноса.</p>
+        </div>
+        <div class="service">
+          <h3>Новостройки</h3>
+          <p>Подберу квартиру у надёжного застройщика и проверю каждый документ сделки.</p>
+        </div>
+      </div>
+
+      <div class="cta">
+        <p>Расскажите о вашей ситуации — предложу варианты уже сегодня</p>
+        <button type="button" class="btn btn-invert">Оставить заявку</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Футер страницы -->
+  <footer class="page-footer">
+    <div class="lead">Какой вариант твой? Напиши Александру номер — от 1 до 7 😊</div>
+    <div class="fine">Тексты и фото в макете — предварительные, всё заменим на твои.</div>
+  </footer>
+
+</body>
+</html>
