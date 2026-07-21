@@ -2,28 +2,6 @@
 (function () {
   'use strict';
 
-  var root = document.documentElement;
-
-  /* ---------- Переключатель темы (только для примерки) ---------- */
-  var themeButtons = document.querySelectorAll('.theme-btn');
-
-  function setTheme(value) {
-    if (value === 'evening') {
-      root.setAttribute('data-theme', 'evening');
-    } else {
-      root.removeAttribute('data-theme');
-    }
-    themeButtons.forEach(function (btn) {
-      btn.classList.toggle('is-active', btn.getAttribute('data-theme-value') === value);
-    });
-  }
-
-  themeButtons.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      setTheme(btn.getAttribute('data-theme-value'));
-    });
-  });
-
   /* ---------- Reveal-анимации на скролле ---------- */
   var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var revealEls = document.querySelectorAll('.reveal');
